@@ -9,6 +9,7 @@ export default function OwnerUploadPage() {
   const [title, setTitle] = useState("")
   const [price, setPrice] = useState("")
   const [description, setDescription] = useState("")
+  const [about, setAbout] = useState("")
   const [image, setImage] = useState("")
   const [display, setDisplay] = useState("")
   const [processor, setProcessor] = useState("")
@@ -18,6 +19,7 @@ export default function OwnerUploadPage() {
   const [storage, setStorage] = useState("")
   const [category, setCategory] = useState("general")
   const [stock, setStock] = useState("")
+  const [deliveryDays, setDeliveryDays] = useState(3)
   const [inStock, setInStock] = useState(true)
   const [loading, setLoading] = useState(false)
   const router = useRouter()
@@ -39,7 +41,7 @@ export default function OwnerUploadPage() {
       const res = await fetch('/api/products', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ name: title, description, price: Number(price), category, image, specs, stock: Number(stock || 0), inStock }),
+        body: JSON.stringify({ name: title, description, about, price: Number(price), category, image, specs, stock: Number(stock || 0), inStock, deliveryDays: Number(deliveryDays) }),
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data?.error || 'Upload failed')
@@ -67,6 +69,7 @@ export default function OwnerUploadPage() {
         <Input placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)} />
         <Input placeholder="Image URL" value={image} onChange={(e) => setImage(e.target.value)} />
         <Input placeholder="Short description" value={description} onChange={(e) => setDescription(e.target.value)} />
+  <Input placeholder="About (for AI analysis)" value={about} onChange={(e) => setAbout(e.target.value)} />
 
         <h3 className="text-sm font-medium">Specifications</h3>
   <Input placeholder={'Display (e.g. 6.7")'} value={display} onChange={(e) => setDisplay(e.target.value)} />
@@ -81,6 +84,10 @@ export default function OwnerUploadPage() {
           <label className="flex items-center gap-2">
             <input type="checkbox" checked={inStock} onChange={(e) => setInStock(e.target.checked)} /> In stock
           </label>
+        </div>
+
+        <div className="flex gap-2">
+          <Input type="number" placeholder="Delivery days (e.g. 3)" value={String(deliveryDays)} onChange={(e) => setDeliveryDays(Number(e.target.value || 0))} />
         </div>
 
         <Button type="submit" disabled={loading}>{loading ? 'Uploading...' : 'Upload'}</Button>

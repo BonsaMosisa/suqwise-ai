@@ -171,7 +171,10 @@ export default function ProductDetailsPage() {
                 <div className="flex items-start justify-between">
                   <div>
                     <CardTitle className="text-3xl mb-2">{product.name}</CardTitle>
-                    <CardDescription className="text-lg">{product.store}</CardDescription>
+                    <div className="flex flex-col">
+                      <CardDescription className="text-lg">{product.store}</CardDescription>
+                      <div className="text-sm text-muted-foreground">ID: #{product.id}</div>
+                    </div>
                   </div>
                 </div>
 

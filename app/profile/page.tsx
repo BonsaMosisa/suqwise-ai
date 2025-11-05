@@ -18,7 +18,7 @@ export default function ProfilePage() {
                 <User className="w-10 h-10 text-primary-foreground" />
               </div>
               <div>
-                <CardTitle>John Doe</CardTitle>
+                <CardTitle>Bonsa Mosisa</CardTitle>
                 <CardDescription>Premium Member</CardDescription>
               </div>
             </div>
@@ -35,7 +35,7 @@ export default function ProfilePage() {
               <Mail className="h-5 w-5 text-primary" />
               <div className="flex-1">
                 <p className="text-sm text-muted-foreground">Email</p>
-                <p className="font-medium">john.doe@example.com</p>
+                <p className="font-medium">bon.mosisa@gmail.com</p>
               </div>
             </div>
 
@@ -43,7 +43,7 @@ export default function ProfilePage() {
               <Phone className="h-5 w-5 text-primary" />
               <div className="flex-1">
                 <p className="text-sm text-muted-foreground">Phone</p>
-                <p className="font-medium">+1 (555) 123-4567</p>
+                <p className="font-medium">0937905155</p>
               </div>
             </div>
 
@@ -51,7 +51,7 @@ export default function ProfilePage() {
               <MapPin className="h-5 w-5 text-primary" />
               <div className="flex-1">
                 <p className="text-sm text-muted-foreground">Address</p>
-                <p className="font-medium">123 Main Street, New York, NY 10001</p>
+                <p className="font-medium">Jimma City, Oromia, Ethiopia</p>
               </div>
             </div>
           </CardContent>

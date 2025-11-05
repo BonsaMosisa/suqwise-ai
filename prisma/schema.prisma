@@ -22,6 +22,8 @@ model Product {
   id          Int       @id @default(autoincrement())
   name        String
   description String?
+  about       String?
+  deliveryDays Int?     @default(3)
   specs       Json?
   stock       Int?      @default(0)
   inStock     Boolean   @default(true)
